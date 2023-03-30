@@ -1,0 +1,10 @@
+  override fun getExistingBeneficiary(param: BeneficiaryType): Flow<ExistingBeneficiaryResponse> {
+        return flow {
+            emit(
+                p2pNetworkService.getExistingBeneficiary(
+                    param.type,
+                    param.userId
+                )
+            )
+        }.flowOn(Dispatchers.IO)
+    }
